@@ -35,7 +35,21 @@ HASH_MORSE = {
   '---..' => '8',
   '----.' => '8',
   '-----' => '0',
-  '/' => ' ' # Mapping foward bar to be a space
+  '/' => ' ', # Mapping foward bar to be a space
+  '.-.-.' => '+',
+  '-...-' => '=',
+  '.-.-.-' => '.',
+  '--..--' => ',',
+  '..--..' => '?',
+  '-.--.' => '(',
+  '-.--.-' => ')',
+  '-....-' => '-',
+  '.-..-.' => '"',
+  '..--.-' => '_',
+  '.----.' => "'",
+  '---...' => ':',
+  '-.-.-.' => ';',
+  '...-..-' => '$' 
 }
 
 class ConvertFromMorse
@@ -55,6 +69,7 @@ class ConvertFromMorse
     @translated_string
   end
 end
+STDOUT.sync = TRUE
 
 morse = ConvertFromMorse.new
 
@@ -67,3 +82,10 @@ morse.get_translated(".. - /  .. ... /  .- /  .--. .-.. . .- ... ..- .-. . /  - 
 mc = morse.mk_morse_code('HAHAHA Interesting! Thx PotHix.')
 puts mc
 morse.get_translated mc
+input = 'nil'
+until input.chomp == 'quit'
+  input = gets
+  puts input
+  puts morse.mk_morse_code input
+end
+
