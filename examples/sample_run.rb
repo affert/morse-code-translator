@@ -22,6 +22,8 @@ mc = morse.to_morse('HAHAHA Interesting! Thx PotHix.')
 puts mc
 puts morse.to_plain(mc)
 input = 'nil'
+puts "Type in what you would like to have converted to morse (type quit to exit).'
+
 until input.chomp == 'quit'
   input = gets
   puts input
