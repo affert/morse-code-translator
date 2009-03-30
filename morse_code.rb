@@ -68,17 +68,31 @@ class MorseConverter
     array_morse.each { |morse| @translated_string << HASH_MORSE[morse] if HASH_MORSE[morse] }
     @translated_string
   end
+  
+  # Syntactic sugar for converting single words to morse code
+  def method_missing(symbol)
+    to_morse(symbol.to_s)
+  end
 end
 STDOUT.sync = TRUE
 
 morse = MorseConverter.new
 
+puts 'Converting from morse to plain text:'
 puts morse.to_plain("-- --- .-. ... . / -.-. --- -.. . / - .... . / -. . .-- / -.. . .- -.. / .-.. .- -. --. ..- .- --. . .-.-.-")
 puts morse.to_plain("--- -- --.  .. ...  -- --- .-. ... .  -.-. --- -..")
 puts morse.to_plain("- .-- . . - ... / .- .-. . / . ...- . -. / ... .... --- .-. - . .-. / .-- .. - .... / -- --- .-. ... . / -.-. --- -..")
 puts morse.to_plain("-- --- .-. ... .   -.-. --- -.. .   .. ...   -... .- -..   ..-. --- .-.   - .-- . . - .. -. --")
 puts morse.to_plain(".. - /  .. ... /  .- /  .--. .-.. . .- ... ..- .-. . /  - --- /  -- . . - /  -.-- --- ..- /  .- ... /  .-- . .-.. .-.")
+puts
 
+# testing syntactic sugar
+puts 'Syntactic sugar for converting single words to morse:'
+puts morse.to_morse('RubyLearning')
+puts morse.rubylearning
+puts
+
+puts 'Converting to morse:'
 mc = morse.to_morse('HAHAHA Interesting! Thx PotHix.')
 puts mc
 puts morse.to_plain(mc)
@@ -88,4 +102,5 @@ until input.chomp == 'quit'
   puts input
   puts morse.to_morse(input)
 end
+
 
