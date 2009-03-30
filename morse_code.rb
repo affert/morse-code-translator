@@ -1,3 +1,4 @@
+class MorseConverter
 HASH_MORSE = {
   '.-' => 'a',
   '-..' => 'b',
@@ -52,7 +53,6 @@ HASH_MORSE = {
   '...-..-' => '$' 
 }
 
-class MorseConverter
   def to_plain(string_morse)
     @translated_string = ''
     translate(string_morse)
