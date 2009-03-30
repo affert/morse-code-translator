@@ -2,4 +2,5 @@ MORSE CODE TRANSLATOR
 
 Just joking with morse code on twitter and this code helped to translate the conversations
 
-BUGS: Currently reutrns blank string for letter B or b.
+BUGS: Currently reutrns blank string for letter B or b. **Fixed**
+      Possible unwanted behaviour for missing_method: hint;  morse.test
