@@ -52,40 +52,40 @@ HASH_MORSE = {
   '...-..-' => '$' 
 }
 
-class ConvertFromMorse
-  def get_translated(string_morse)
-    @translated_string = ""
-    puts translate(string_morse)
+class MorseConverter
+  def to_plain(string_morse)
+    @translated_string = ''
+    translate(string_morse)
   end
 
-  def mk_morse_code line
-    line.split('').map{|c| HASH_MORSE.index c.downcase}.join(' ')
+  def to_morse(string)
+    string.split('').map { |c| HASH_MORSE.index c.downcase }.join(' ')
   end
 
   private
   def translate(string_morse)
-    array_morse = string_morse.split()
-    array_morse.each{|morse| @translated_string += HASH_MORSE[morse] unless HASH_MORSE[morse].nil? }
+    array_morse = string_morse.split
+    array_morse.each { |morse| @translated_string << HASH_MORSE[morse] if HASH_MORSE[morse] }
     @translated_string
   end
 end
 STDOUT.sync = TRUE
 
-morse = ConvertFromMorse.new
+morse = MorseConverter.new
 
-morse.get_translated("-- --- .-. ... . / -.-. --- -.. . / - .... . / -. . .-- / -.. . .- -.. / .-.. .- -. --. ..- .- --. . .-.-.-")
-morse.get_translated("--- -- --.  .. ...  -- --- .-. ... .  -.-. --- -..")
-morse.get_translated("- .-- . . - ... / .- .-. . / . ...- . -. / ... .... --- .-. - . .-. / .-- .. - .... / -- --- .-. ... . / -.-. --- -..")
-morse.get_translated("-- --- .-. ... .   -.-. --- -.. .   .. ...   -... .- -..   ..-. --- .-.   - .-- . . - .. -. --")
-morse.get_translated(".. - /  .. ... /  .- /  .--. .-.. . .- ... ..- .-. . /  - --- /  -- . . - /  -.-- --- ..- /  .- ... /  .-- . .-.. .-.")
+puts morse.to_plain("-- --- .-. ... . / -.-. --- -.. . / - .... . / -. . .-- / -.. . .- -.. / .-.. .- -. --. ..- .- --. . .-.-.-")
+puts morse.to_plain("--- -- --.  .. ...  -- --- .-. ... .  -.-. --- -..")
+puts morse.to_plain("- .-- . . - ... / .- .-. . / . ...- . -. / ... .... --- .-. - . .-. / .-- .. - .... / -- --- .-. ... . / -.-. --- -..")
+puts morse.to_plain("-- --- .-. ... .   -.-. --- -.. .   .. ...   -... .- -..   ..-. --- .-.   - .-- . . - .. -. --")
+puts morse.to_plain(".. - /  .. ... /  .- /  .--. .-.. . .- ... ..- .-. . /  - --- /  -- . . - /  -.-- --- ..- /  .- ... /  .-- . .-.. .-.")
 
-mc = morse.mk_morse_code('HAHAHA Interesting! Thx PotHix.')
+mc = morse.to_morse('HAHAHA Interesting! Thx PotHix.')
 puts mc
-morse.get_translated mc
+puts morse.to_plain(mc)
 input = 'nil'
 until input.chomp == 'quit'
   input = gets
   puts input
-  puts morse.mk_morse_code input
+  puts morse.to_morse(input)
 end
 
