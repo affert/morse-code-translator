@@ -7,7 +7,7 @@ doctest: Should return .- for letter a
 => '.-'
 doctest: Should return  for letter b
 >> morse.to_morse 'b'
-=> '-..'
+=> '-...'
 doctest: Should return -.-. for letter c
 >> morse.to_morse 'c'
 => '-.-.'
@@ -80,4 +80,34 @@ doctest: Should return -.-- for letter y
 doctest: Should return --.. for letter z
 >> morse.to_morse 'z'
 => '--..'
+doctest: Should return ----- for number 0
+>> morse.to_morse '0'
+=> '-----'
+doctest: Should return .---- for number 1
+>> morse.to_morse '1'
+=> '.----'
+doctest: Should return ..--- for number 2
+>> morse.to_morse '2'
+=> '..---'
+doctest: Should return ...-- for number 3
+>> morse.to_morse '3'
+=> '...--'
+doctest: Should return ....- for number 4
+>> morse.to_morse '4'
+=> '....-'
+doctest: Should return ..... for number 5
+>> morse.to_morse '5'
+=> '.....'
+doctest: Should return -.... for number 6
+>> morse.to_morse '6'
+=> '-....'
+doctest: Should return --... for number 7
+>> morse.to_morse '7'
+=> '--...'
+doctest: Should return ---.. for number 8
+>> morse.to_morse '8'
+=> '---..'
+doctest: Should return ----. for number 9
+>> morse.to_morse '9'
+=> '----.'
 =end
