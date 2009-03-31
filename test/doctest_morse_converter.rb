@@ -1,6 +1,6 @@
 =begin
 doctest: Setup
->> require '../morse_code'
+>> require File.dirname(__FILE__) + '/../morse_code'
 >> morse = MorseConverter.new
 doctest: Should return .- for letter a
 >> morse.to_morse 'a'
