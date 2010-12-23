@@ -1,4 +1,4 @@
-require '../morse_code'
+require File.expand_path(File.dirname(__FILE__) + '/../lib/morse_code')
 STDOUT.sync = TRUE
 
 morse = MorseConverter.new
@@ -22,7 +22,7 @@ mc = morse.to_morse('HAHAHA Interesting! Thx PotHix.')
 puts mc
 puts morse.to_plain(mc)
 input = 'nil'
-puts "Type in what you would like to have converted to morse (type quit to exit).'
+puts "Type in what you would like to have converted to morse (type quit to exit)."
 
 until input.chomp == 'quit'
   input = gets
