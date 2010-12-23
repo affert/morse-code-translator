@@ -60,7 +60,7 @@ HASH_MORSE = {
   end
 
   def to_morse(string)
-    string.split('').map { |c| HASH_MORSE.index c.downcase }.join(' ')
+    string.split('').map { |c| HASH_MORSE.key c.downcase }.join(' ')
   end
 
   private
